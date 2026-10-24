@@ -1,5 +1,4 @@
-<p align="center"><img src="extension/icons/icon-128.png" width="96" alt="Slipframe glass S logo"></p>
-<h1 align="center">Slipframe</h1>
+<p align="center"><img src="branding/slipframe-wordmark.png" width="420" alt="Slipframe glass logo and wordmark"></p>
 <p align="center">Immersive browsing. Effortless switching.</p>
 
 **Version 0.99 · Firefox · Unsigned release candidate**
@@ -24,11 +23,11 @@ Slipframe gives you a built-in, Win+Tab-like overview of all your open tabs. Sca
 
 ### Immersive fullscreen mode
 
-The browser controls slide away while the page stays the same size. That avoids the jitter and page resizing some auto-hiding tab bars cause when you hover over them. Move to the top edge when you need the controls; the Windows taskbar remains accessible in this mode.
+![Animated preview of immersive fullscreen mode](demo/immersive-fullscreen.gif)
 
-https://github.com/user-attachments/assets/e209c64b-35ff-4bca-9272-c886fa598f55
+The browser controls slide away while the page stays the same size, avoiding the jitter and resizing that can happen with auto-hiding tab bars when you hover over them. Move to the top edge to bring the controls back. The Windows taskbar remains accessible in this mode.
 
-The full-resolution recordings are in [demo/](demo/).
+Full-resolution recordings are available in [demo/](demo/).
 
 ## Try it
 
