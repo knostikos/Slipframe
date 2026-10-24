@@ -1,0 +1,50 @@
+/* Scoped inside a closed shadow root; no page selectors are changed. */
+:host {all:initial!important;position:fixed!important;inset:0!important;z-index:2147483647!important;display:block!important;color-scheme:dark!important;font:14px/1.4 system-ui,sans-serif!important;color:#fff!important}
+*{box-sizing:border-box} button,input{font:inherit}button{cursor:pointer}
+.backdrop{position:absolute;inset:0;background:rgb(10 14 21 / var(--tv-dim,.15));backdrop-filter:blur(var(--tv-blur,3px));animation:fade .2s ease-out}
+.shell{position:absolute;inset:0;display:flex;flex-direction:column;padding:54px clamp(24px,3vw,48px) 88px;gap:0;animation:rise .24s cubic-bezier(.2,.7,.3,1)}
+.exit{position:absolute;right:16px;top:12px;z-index:1;display:grid;place-items:center;width:40px;height:40px;padding:0;border:0;background:transparent;color:#e0e6ed;cursor:pointer}.exit:hover{color:white}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:var(--tv-gap,20px);overflow:auto;padding:8px 8px 24px;align-content:center;justify-content:center;scrollbar-width:thin;min-height:0;flex:1}
+.card{position:relative;cursor:pointer;min-width:0;border:0;background:none;padding:0;text-align:left;color:#fff;border-radius:14px;outline:none;transition:transform .16s ease,opacity .16s ease}
+.card:hover{transform:translateY(-3px)}.card:focus-visible .preview{outline:3px solid #b8ccff;outline-offset:4px}
+.preview{position:relative;aspect-ratio:16/10;border-radius:12px;overflow:hidden;background:linear-gradient(135deg,#273745,#17202d);box-shadow:0 12px 32px #0004;border:1px solid #ffffff30}
+.card.active .preview{border-color:#b8ccff;box-shadow:0 0 0 1px #b8ccff80,0 12px 32px #0004}
+.preview img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.placeholder{height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:9px;color:#aab8c5;font-size:12px}.monogram{font-size:34px;color:#d7e8ed;font-weight:300}
+.badge{position:absolute;left:10px;bottom:10px;background:#101820d9;color:#e3eaff;border:1px solid #b8ccff40;border-radius:7px;padding:3px 8px;font-size:10px;letter-spacing:.7px;text-transform:uppercase}
+.title{display:block;min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-weight:550;font-size:13px;text-shadow:0 1px 5px #0008}
+.empty{color:#cbd6df;padding:30px;text-align:center;grid-column:1/-1}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+@keyframes fade{from{opacity:0}to{opacity:1}}@keyframes rise{from{opacity:0;transform:translateY(10px) scale(.99)}to{opacity:1;transform:none}}
+
+.brand{position:absolute;left:26px;bottom:20px;display:flex;align-items:center;gap:10px;color:#fff;font-size:17px;font-weight:600;letter-spacing:-.4px;cursor:pointer;border:0;background:transparent;padding:0;font-family:inherit;text-shadow:0 1px 6px #0008}
+.brand img{width:27px;height:27px;border-radius:7px}
+.label{position:relative;display:flex;align-items:center;gap:8px;height:32px;padding:0 42px 0 3px;min-width:0}
+.favicon{width:16px;height:16px;object-fit:contain;flex:none;border-radius:3px}
+.close-tab{position:absolute;right:0;top:-4px;display:grid;place-items:center;width:40px;height:40px;padding:0;border:0;border-radius:0;background:transparent;color:white;opacity:0;pointer-events:none;transition:opacity .15s ease,color .15s ease;cursor:pointer}
+.card:hover .close-tab,.card:focus-within .close-tab{opacity:1;pointer-events:auto}
+.close-tab:hover{color:#ffb7bd}.close-tab:focus-visible{outline:2px solid #b8ccff;outline-offset:2px}
+@media(hover:none){.close-tab{opacity:1;pointer-events:auto}}
+
+.brand:hover{color:#b8ccff}.brand:focus-visible{outline:2px solid #b8ccff;outline-offset:5px;border-radius:6px}
+
+.close-tab svg,.exit svg{display:block;width:18px;height:18px;pointer-events:none;filter:drop-shadow(0 1px 3px #000a)}
+.exit:focus-visible{outline:2px solid #b8ccff;outline-offset:2px;border-radius:4px}
+.wake-tab{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);border:1px solid #ffffff30;border-radius:7px;padding:6px 10px;background:#15202b;color:#e5edf5;font:11px/1.2 system-ui;white-space:nowrap;cursor:pointer}
+.wake-tab:hover{background:#243546}.wake-tab:disabled{opacity:.6;cursor:wait}.wake-tab:focus-visible{outline:2px solid #b8ccff;outline-offset:2px}
+
+/* Slipframe glass accents. Page previews remain sharp and unfiltered. */
+.brand{font-size:20px;font-weight:550;letter-spacing:-.6px;gap:11px}
+.brand img{width:46px;height:46px;object-fit:contain;filter:drop-shadow(0 2px 5px #0003);border-radius:0}
+.brand:hover{color:#dce6ff}
+.preview{border-color:#e4edff40;box-shadow:0 10px 28px #0003,inset 0 1px 0 #ffffff24}
+.card.active .preview{border-color:#c8d8ff;box-shadow:0 0 0 1px #c8d8ff66,0 12px 32px #0004}
+.card{transition:transform .18s cubic-bezier(.2,.7,.3,1),opacity .18s ease}
+.badge{color:#e5edff;background:#28344ab8;border-color:#d6e5ff38;backdrop-filter:blur(12px);font-size:9px;letter-spacing:.6px}
+.wake-tab{background:#28344ab8;backdrop-filter:blur(12px);border-color:#e0eaff38;border-radius:9px}
+
+/* A thin refracted-glass rim. The tint is confined to the border, never the image. */
+.preview::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;pointer-events:none;background:linear-gradient(135deg,#d9f6ff70 0%,#ffffff18 24%,#b7b7ff40 54%,#ecdcff1f 76%,#c6edff55 100%);mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask-composite:exclude}
+.card.active .preview::after{background:linear-gradient(135deg,#dbf4ff99,#d7ceff50 52%,#c2edff80)}
+.title{flex:1;line-height:20px}
+@media(max-width:500px){.brand{left:22px;bottom:17px;font-size:18px}.brand img{width:40px;height:40px}.shell{padding-bottom:78px}}

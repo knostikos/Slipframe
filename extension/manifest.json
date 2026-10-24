@@ -1,0 +1,62 @@
+{
+  "manifest_version": 2,
+  "name": "Slipframe \u2014 Immersive Browsing",
+  "version": "0.99",
+  "description": "A fluid visual tab overview, clear page previews, and optional auto-hiding browser controls. More page. Less clutter.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{d096dde4-cb0e-406f-8ce2-c84ac6a5bcb3}",
+      "strict_min_version": "140.0",
+      "data_collection_permissions": {
+        "required": [
+          "none"
+        ]
+      }
+    }
+  },
+  "permissions": [
+    "tabs",
+    "<all_urls>",
+    "notifications",
+    "storage"
+  ],
+  "background": {
+    "scripts": [
+      "settings.js",
+      "background.js"
+    ],
+    "persistent": true
+  },
+  "browser_action": {
+    "default_title": "Toggle Slipframe",
+    "default_icon": {
+      "16": "icon.svg",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png"
+    }
+  },
+  "commands": {
+    "toggle-overview": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Space"
+      },
+      "description": "Toggle Slipframe overview"
+    }
+  },
+  "web_accessible_resources": [
+    "overview.css",
+    "icon.svg",
+    "icons/icon-32.png",
+    "icons/icon-96.png"
+  ],
+  "icons": {
+    "48": "icons/icon-48.png",
+    "96": "icons/icon-96.png",
+    "128": "icons/icon-128.png"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true,
+    "browser_style": false
+  }
+}
