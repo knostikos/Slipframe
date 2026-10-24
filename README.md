@@ -4,27 +4,31 @@
 
 **Version 0.99 · Firefox · Unsigned release candidate**
 
-A visual tab switcher that floats above your current page, paired with optional auto-hiding browser controls. See your open pages, switch without hunting through tiny tabs, and give the web more room.
+Slipframe adds a built-in, Win+Tab-like overview for your open browser tabs. See your pages as visual previews, switch in one click, and optionally tuck browser controls away when you want more room for the page.
 
-- Clear screenshot previews with favicons and compact titles above each frame.
-- Automatic grid sizing, subtle glass borders, and a lightly blurred backdrop.
+- Screenshot previews with favicons and compact tab titles.
+- An automatically sized grid with subtle glass borders and a lightly blurred backdrop.
 - Click to switch; middle-click or hover × to close.
 - Keyboard shortcut and optional Gesturefy integration.
 - Appearance controls, light/dark settings, and background preview caching.
-- Optional immersive CSS: browser controls slide away and reveal at the top edge.
+- Optional immersive fullscreen mode with controls that reveal at the top edge.
 - Local screenshot processing. No analytics, accounts, or developer-operated service.
 
 ## Feature demos
 
-### Optional immersive mode
+### Tab overview
+
+![Animated preview of Slipframe's open-tab overview](demo/tab-overview.gif)
+
+Slipframe gives you a built-in, Win+Tab-like overview of all your open tabs. Scan the previews in one grid, then click a page to switch to it. Middle-click or hover over × to close a tab.
+
+### Immersive fullscreen mode
+
+The browser controls slide away while the page stays the same size. That avoids the jitter and page resizing some auto-hiding tab bars cause when you hover over them. Move to the top edge when you need the controls; the Windows taskbar remains accessible in this mode.
 
 https://github.com/user-attachments/assets/e209c64b-35ff-4bca-9272-c886fa598f55
 
-### Slipframe tab overview
-
-[Watch the Slipframe tab overview demo](demo/slipframe-overview.mp4)
-
-The full-resolution clips are available in [demo/](demo/).
+The full-resolution recordings are in [demo/](demo/).
 
 ## Try it
 
@@ -34,7 +38,7 @@ Temporary installs disappear after restarting Firefox. Permanent installation ne
 
 See [START-HERE.md](START-HERE.md) for installation, updating, Gesturefy, immersive setup, limitations and rollback. See [PRIVACY.md](PRIVACY.md) for data handling and permissions.
 
-## Optional immersive mode
+## Set up immersive mode
 
 In settings, download userChrome.css, open about:support → Profile Folder → Open Folder, and move the file into the profile’s chrome folder (create the folder if missing). Follow the remaining setup steps in settings to enable custom CSS, configure F2 and restart. Existing stylesheets should be backed up or merged.
 
